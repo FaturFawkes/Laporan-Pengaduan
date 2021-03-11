@@ -1,8 +1,11 @@
 <?php
+
 include "../../../config/function.php";
 
 $username = $_POST['username'];
 $password = $_POST['password'];
+
+$nik = $_POST['nik'];
 
 $data = ambilDatamasyarakat($_POST);
 $cekRow = mysqli_num_rows($data);

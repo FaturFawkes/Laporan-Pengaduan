@@ -41,16 +41,8 @@ function tambahDataMasyarakat($data){
     $row = mysqli_affected_rows($conn);
     return $row;
 }
-// AMBIL NIK (SESSION NIK MATI)
-function ambilNik($username){
-    global $conn;
 
-    $sql = "SELECT * FROM `masyarakat` WHERE `username` = '$username' ";
-    $query = mysqli_query($conn, $sql);
-    return $query;
-}
-
-// TAMBAH LAPORAN PENGADUAN
+// UPLOAD LAPORAN PENGADUAN
 function kirimPengaduan($data){
     global $conn;
 
@@ -61,11 +53,7 @@ function kirimPengaduan($data){
     }
 
     // ISI LAPORAN
-    $sesiUsername = $_SESSION['username'];
-    $ambilUsername = ambilNik($sesiUsername);
-    $ambilNik = mysqli_fetch_assoc($ambilUsername);
-    
-    $nik = $ambilNik['nik'];
+    $nik = $_SESSION['nik'];
     $judul = $data['judul'];
     $isi = $data['isi'];
     $alamat = $data['alamat'];
@@ -122,6 +110,24 @@ function uploadGambar($gambar){
     return $namaBaru;
 }
 
+// LIHAT PENGADUAN
+function lihatPengaduanDetail(){
+    global $conn;
+ 
+    $sql = "SELECT id_pengaduan, peng.tgl_pengaduan, nik, isi_laporan, foto, `status`, judul_pengaduan, alamat, tanggapan FROM pengaduan peng INNER JOIN tanggapan tang USING (id_pengaduan)";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($query);
+    $data[] = $row;
+    return $data;
+}
+
+function lihatPengaduan($nik){
+    global $conn;
+ 
+    $sql = "SELECT * FROM pengaduan WHERE nik = '$nik'";
+    $query = mysqli_query($conn, $sql);
+    return $query;
+}
 
 
 // 

@@ -100,32 +100,18 @@ if(  isset($_SESSION['username']) ){
         ';
     }elseif( $_SESSION['level'] == "masyarakat"){
         $sidebar = '
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse pb-5">
-            <div class="position-sticky pt-3">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                <a class="nav-link active-home" aria-current="page" href="http://'.$server.'modul/masyarakat-app/dashboard">
-                    <i class="fas fa-home pr-2" style="font-size : 28px;"></i>
-                    Home
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="http://'.$server.'modul/masyarakat-app/dashboard/buatPengaduan.php">
-                    <i class="fas fa-edit pr-1" style="font-size : 28px;"></i>
-                    Buat Pengaduan
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="http://'.$server.'modul/masyarakat-app/dashboard/lihatPengaduan.php"">
-                    <i class="fas f fa-file-alt pr-3" style="font-size : 28px;"></i>
-                    Lihat pengaduan
-                </a>
-                </li>
 
-                
-            </ul>
-            </div>
-        </nav>
+        <script>
+        function logout() {
+            var r = confirm("Apakah anda yakin?");
+            if (r == true) {
+                window,location.href= "http://'.$server.'modul/masyarakat-app/dashboard/logout.php";
+            } else {
+                window,location.href= "http://'.$server.'modul/masyarakat-app/dashboard";
+            }
+          }
+        </script>
+        
         ';
     }else{
         echo "Maaf anda tidak terdaftar";
@@ -133,3 +119,6 @@ if(  isset($_SESSION['username']) ){
 }
 
 ?>
+
+
+
