@@ -4,17 +4,31 @@ include "../../config/header.php";
 
 session_destroy();
 ?>
+<head>
+<link rel="stylesheet" type="text/css" href="../../assets/login/css/util.css">
+<link rel="stylesheet" type="text/css" href="../../assets/login/css/main.css">
+</head>
 
+<body  style="background-image: url('../../assets/login/images/bg-01.jpg');">
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-10 mx-auto">
-            <div class="card bg-warning">
+    <div class="row my-5 py-5">
+        <div class="col-lg-6 mx-auto">
+            <div class="card bg-light">
                 <div class="card-body text-center">
                     <div class="card-tittle text-center"><h2>Selamat Datang di Menu Pengaduan</h2></div><hr>
                     <p class="card-text"><h5 class="text-center">Silahkan pilih pengguna</h5></p>
-                    <a href="http://<?=$server ?>modul/masyarakat-app/login" class="btn btn-success">Masyarakat</a>
-                    <a href="http://<?=$server ?>modul/admin-app/login" class="btn btn-success">Administrator</a>
+
+                    <div class="container-login100-form-btn m-t-17">
+						<button class="login100-form-btn" onclick="window.location.href='http://<?=$server ?>modul/masyarakat-app/login'" type="submit">
+                            Masyarakat
+						</button>
+                    </div>
+                    <div class="container-login100-form-btn m-t-17">
+						<button class="login100-form-btn" onclick="window.location.href='http://<?=$server ?>modul/admin-app/login'" type="submit">
+                            Admin
+						</button>
+                    </div>
                     <hr>
                     <p>Desa Fatahillah</p>
                 </div>
@@ -22,3 +36,5 @@ session_destroy();
         </div>
     </div>
 </div>
+    
+</body>

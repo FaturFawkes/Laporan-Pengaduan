@@ -1,39 +1,58 @@
 <?php
-include "../../../config/function.php";
+include "../../../config/function.php"; 
+include "../../../config/header.php"; 
+
 if( !isset($_SESSION['username']) ){
   echo'<script>alert("Sesi tidak ditemukan");window,location.href= "http://'.$server.'modul/masyarakat-app/login"</script>';
 }
 
 ?>
 
+
+<!doctype html>
+<html lang="en">
+
 <head>
-<!-- MAIN CSS DASHBOARD-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Lihat Pengaduan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    
 <link rel="stylesheet" href="../../../assets/dashboard/main.css">
-
-<!-- DATATABLE -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"/> -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.bootstrap4.min.css"/>
-
 </head>
-
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="index.php">LAPORAN PENGADUAN <br> KECAMATAN CILEUNGSI</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> 
-</header>
 <body>
-    <div class="container-fluid">
-    <div class="row">
-    <?= $sidebar; ?>
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Pengaduan Anda</h1>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        <div class="app-header header-shadow">
+            <div class="app-header__content"><h4 class="">Laporan Pengaduan</h4>
+              
+            
         </div>
-        <div class="col-md-12 lg-12">
+    </div>  <div class="app-main">
+        <?= $sidebar; ?>            
+    <div class="app-main__outer">
+                    <div class="app-main__inner">
+                        <div class="app-page-title">
+                            <div class="page-title-wrapper">
+                                <div class="page-title-heading">
+                                    <div class="page-title-icon">
+                                        <i class="pe-7s-note2 icon-gradient bg-amy-crisp">
+                                        </i>
+                                    </div>
+                                    <div>Pengaduan Anda
+                                        <div class="page-title-subheading">Anda dapat melihat pengaduan anda disini dan dapat menghapusnya jika belum diproses</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+
+                        <!-- KONTENT UTAMA -->
+                        <div class="col-md-12 lg-12">
           <div class="main-card mb-3 card">
-              <div class="card-body"><h5 class="card-title">Table striped</h5>
+              <div class="card-body">
                   <table class="mb-0 table table-striped" id="data-table-masyarakat">
                       <thead>
                       <tr>
@@ -48,14 +67,19 @@ if( !isset($_SESSION['username']) ){
                       </thead>
                       <tbody>
                       <?php
+                      // MENAMPILKAN LAPORAN USER SENDIRI
                       $pengaduan = (lihatPengaduan($_SESSION['nik']));
                       $i = 1;
                       foreach ( $pengaduan as $data):
-                        // var_dump($data);
                       ?>
                       <tr>
                           <td scope="row"><?=$i;?></td>
-                          <td><?=$data['tgl_pengaduan'];?></td>
+                          <td>
+                            <?php
+                            $tanggal = $data['tgl_pengaduan'];
+                            echo date("d/F/Y", strtotime($tanggal));
+                            ?>
+                          </td>
                           <td><?=$data['judul_pengaduan'];?></td>
                           <td><?=$data['alamat'];?></td>
                           <td><?=$data['isi_laporan'];?></td>
@@ -74,9 +98,9 @@ if( !isset($_SESSION['username']) ){
                           function hapus() {
                               var r = confirm("Apakah anda yakin?");
                               if (r == true) {
-                                  window,location.href= "http://'.$server.'modul/masyarakat-app/dashboard/hapus.php";
+                                  window,location.href= "http://'.$server.'modul/masyarakat-app/dashboard/hapus.php?id='.$data['id_pengaduan'].'";
                               } else {
-                                  window,location.href= "http://'.$server.'modul/masyarakat-app/dashboard/lihatPengaduan.php";
+                                  window,location.href= "#";
                               }
                             }
                           </script>';
@@ -85,8 +109,9 @@ if( !isset($_SESSION['username']) ){
                             <?php
                             if($data['status'] == 0):
                               $id = $data['id_pengaduan'];
-                            echo '<button class="btn btn-danger pr-3" onclick="hapus()">Hapus</button>';
-                           
+                            ?>
+                            <a href="hapus.php?id=<?=  $data['id_pengaduan'] ?>" class="btn btn-danger pr-3" onclick="return confirm('Apakah Anda yakin?')">Hapus</button>
+                            <?php
                             endif;
                             ?>
                           </td>
@@ -99,13 +124,13 @@ if( !isset($_SESSION['username']) ){
                   </table>
               </div>
           </div>
-                            
+      </div>
+                    </div>       
+                </div>     
         </div>
-    </main>
-  </div>
     </div>
-
-    <?php
-      include "../../../config/footer.php";
-    ?>
+    <?php include "../../../config/footer.php"; ?>
+<script type="text/javascript" src="../../../assets/dashboard/assets/scripts/main.js"></script>
 </body>
+</html>
+

@@ -36,7 +36,7 @@ session_destroy();
 
 				<form class="login100-form validate-form flex-sb flex-w" action="login.php" method="post">
 					<span class="login100-form-title p-b-53">
-						Login Masyarakat
+						LOGIN
 					</span>
 					<div class="form-ro"></div>
                     <div class="p-t-31 p-b-9">

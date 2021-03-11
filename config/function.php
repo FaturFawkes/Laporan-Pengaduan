@@ -111,14 +111,14 @@ function uploadGambar($gambar){
 }
 
 // LIHAT PENGADUAN
-function lihatPengaduanDetail(){
+function lihatTanggapanPengaduan($id){
     global $conn;
  
-    $sql = "SELECT id_pengaduan, peng.tgl_pengaduan, nik, isi_laporan, foto, `status`, judul_pengaduan, alamat, tanggapan FROM pengaduan peng INNER JOIN tanggapan tang USING (id_pengaduan)";
+    $sql = "SELECT id_pengaduan, peng.tgl_pengaduan, nik, isi_laporan, foto, `status`, judul_pengaduan, alamat, tanggapan FROM pengaduan peng INNER JOIN tanggapan tang USING (id_pengaduan) WHERE id_pengaduan = $id";
     $query = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($query);
     $data[] = $row;
-    return $data;
+    return $row;
 }
 
 function lihatPengaduan($nik){
@@ -129,6 +129,24 @@ function lihatPengaduan($nik){
     return $query;
 }
 
+function lihatPengaduanDetail($id){
+    global $conn;
+ 
+    $sql = "SELECT * FROM pengaduan WHERE id_pengaduan = $id";
+    $query = mysqli_query($conn, $sql);
+    return $query;
+}
+
+// HAPUS LAPORAN
+function hapusLaporan($id){
+    global $conn;
+ 
+    $sql = "DELETE FROM pengaduan WHERE id_pengaduan = $id";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_affected_rows($conn);
+    return $row;
+
+}
 
 // 
 // ADMINISTRTOR
