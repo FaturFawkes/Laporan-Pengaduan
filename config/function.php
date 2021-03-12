@@ -114,7 +114,7 @@ function uploadGambar($gambar){
 function lihatTanggapanPengaduan($id){
     global $conn;
  
-    $sql = "SELECT id_pengaduan, peng.tgl_pengaduan, nik, isi_laporan, foto, `status`, judul_pengaduan, alamat, tanggapan FROM pengaduan peng INNER JOIN tanggapan tang USING (id_pengaduan) WHERE id_pengaduan = $id";
+    $sql = "SELECT id_pengaduan, id_petugas, peng.tgl_pengaduan, nik, isi_laporan, foto, `status`, judul_pengaduan, alamat, tanggapan FROM pengaduan peng INNER JOIN tanggapan tang USING (id_pengaduan) WHERE id_pengaduan = $id";
     $query = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($query);
     $data[] = $row;
@@ -137,6 +137,16 @@ function lihatPengaduanDetail($id){
     return $query;
 }
 
+// AMBIL NAMA PETUGAS
+function namaPetugas($id){
+    global $conn;
+ 
+    $sql = "SELECT * FROM petugas WHERE id_petugas = $id";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($query);
+    return $row;
+}
+
 // HAPUS LAPORAN
 function hapusLaporan($id){
     global $conn;
@@ -152,6 +162,43 @@ function hapusLaporan($id){
 // ADMINISTRTOR
 // 
 
+// LOGIN ADMIN
+function loginAdmin($username){
+    global $conn;
+
+    $sql = "SELECT * FROM petugas WHERE username = '$username'";
+    $query = mysqli_query($conn, $sql);
+    return $query;
+}
+
+// DAFTAR PENGADUAN
+function daftarPengaduan(){
+    global $conn;
+
+    $sql = "SELECT * FROM pengaduan";
+    $query = mysqli_query($conn, $sql);
+    return $query;
+}
+
+// UPDATE STATUS LAPORAN
+function gantiStatus($id, $status){
+    global $conn;
+
+    $sql = "UPDATE pengaduan SET `status` = '$status' WHERE id_pengaduan = $id";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_affected_rows($conn);
+    return $row;
+}
+
+// VALIDASI PENGADUAN
+function formValidasi($id){
+    global $conn;
+
+    $sql = "SELECT * FROM pengaduan WHERE id_pengaduan = $id";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($query);
+    return $row;
+}
 
 
 // 

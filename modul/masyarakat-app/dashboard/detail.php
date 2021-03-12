@@ -94,11 +94,21 @@ if( !isset($_SESSION['username']) ){
                                               }elseif($tanggapan['status'] == 2){
                                                 echo "Laporan Diterima";
                                               }
+                                              // var_dump($id);die;
                                             ?>
                                                 </b>
                                             </h6>
                                           </li>
-                                          <li class="list-group-item"><h6><b>Tanggapan : <?= $tanggapan['tanggapan']; ?></b></h6></li>
+                                          <li class="list-group-item">
+                                          <h6><b>Tanggapan : <?= $tanggapan['tanggapan']; ?></b></h6>
+                                          <br>Ditanggapi Oleh : <?php
+                                            $idPetugas = $tanggapan['id_petugas'];
+                                            $petugas = namaPetugas($idPetugas);
+                                            $nama = $petugas['nama_petugas'];
+                                            echo $nama;
+                                          ?> 
+                                          
+                                          </li>
                                         </ul>
                                       
                                 <!-- JIKA BELUM ADA TANGGAPAN -->
