@@ -7,6 +7,7 @@ session_destroy();
 <head>
 <link rel="stylesheet" type="text/css" href="../../assets/login/css/util.css">
 <link rel="stylesheet" type="text/css" href="../../assets/login/css/main.css">
+<title>MENU UTAMA</title>
 </head>
 
 <body  style="background-image: url('../../assets/login/images/bg-01.jpg');">

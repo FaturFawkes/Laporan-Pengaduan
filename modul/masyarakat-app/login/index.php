@@ -26,6 +26,8 @@ session_destroy();
 	<link rel="stylesheet" type="text/css" href="../../../assets/login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="../../../assets/login/css/main.css">
 <!--===============================================================================================-->
+
+<title>LOGIN MASYARAKAT</title>
 </head>
 
 <body>
