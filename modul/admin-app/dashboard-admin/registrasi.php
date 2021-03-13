@@ -1,11 +1,10 @@
 <?php
 include "../../../config/constant.php";
 
-session_destroy();
 ?>
 
 <head>
-  <title>Au Register Forms by Colorlib</title>
+  <title>REGISTRASI PETUGAS</title>
 
 <!-- BOOTSRTAP -->
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
@@ -31,46 +30,14 @@ session_destroy();
 </head>
 <body>
 
-<?php
-if( isset($_GET['pesan']) ){
-$pesan = $_GET['pesan'];
-    if ( $pesan = "berhasil" ){
-?>
-<div class="alert alert-success mb-0" role="alert" style=" color: #155724;background-color: #d4edda;
-    border-color: #c3e6cb;position: relative;
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-    margin-bottom: 0 !important;">
- Pendaftaran berhasil, tunggu maksimal 2 x 24 jam hingga akun anda aktif!
-</div>
-
-<?php }elseif($pesan = "berhasil"){
-?>
-
-<div class="alert alert-danger mb-0" role="alert">
- Pendaftaran Gagal!
-</div>
-
-<?php } } ?>
-
 <div class="page-wrapper bg-gra-03 p-t-45 p-b-50"  style="background-image: url('../../../assets/login/images/bg-01.jpg');">
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">REGISTRASI</h2>
+                    <h2 class="title">REGISTRASI PETUGSA</h2>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="registrasi.php">
-                        <div class="form-row">
-                            <div class="name">NIK</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="number" name="nik">
-                                </div>
-                            </div>
-                        </div>
+                    <form method="POST" action="registrasiProses.php">
                         <div class="form-row">
                             <div class="name">Nama Lengkap</div>
                             <div class="value">
@@ -111,23 +78,14 @@ $pesan = $_GET['pesan'];
                         </div>
                         
                         <div class="w-full text-center p-t-55">
-                            <span class="txt2">
-                                Sudah punya akun?
-                            </span>
+						<span class="txt2">
+							Kembali ke
+						</span>
 
-                            <a href="../login" class="txt2 bo1" style="text-decoration:none;">
-                                Login Sekarang
-                            </a>
-                        </div>
-                        <div class="w-full text-center p-t-55">
-                            <span class="txt2">
-                                Kembali ke 
-                            </span>
-
-                            <a href="../../menu" class="txt2 bo1" style="text-decoration:none;">
-                                Menu Utama
-                            </a>
-                        </div>
+						<a href="index.php" class="txt2 bo1" style="text-decoration:none;">
+							Menu Utama
+						</a>
+					</div>
                     </form>
                 </div>
             </div>

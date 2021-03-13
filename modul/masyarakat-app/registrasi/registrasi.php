@@ -22,12 +22,12 @@ if($cekNik > 0){
     if( $tambahData > 0 ){
         $pesan = "berhasil";
         echo '<script>alert("Pendaftaran berhasil!");window.location.href="index.php?pesan='.$pesan.'";</script>'; 
-        header("location:index.php?daftar='berhasil'");
+
     }
     else{
         $pesan = "gagal";
         echo '<script>alert("Pendaftaran gagal, silahkan coba lagi");window.location.href="index.php?pesan='.$pesan.'";</script>'; 
-        // header("location:index.php?daftar='gagag='");
+   
     }
 }
 

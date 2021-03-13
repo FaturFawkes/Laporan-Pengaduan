@@ -283,6 +283,48 @@ function hapusMasyarakat($nik){
     return $row;
 }
 
+// AMBIL DATA PETUGAS
+function daftarPetugas(){
+    global $conn;
+    $sql = "SELECT * FROM `petugas` WHERE `level` = 'petugas' ORDER BY nama_petugas ASC";
+    $query = mysqli_query($conn, $sql);
+    return $query;
+}
+
+// HAPUS AKUN PETUGAS
+function hapusPetugas($id){
+    global $conn;
+    $sql = "DELETE FROM petugas WHERE id_petugas = $id";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_affected_rows($conn);
+    return $row;
+}
+
+// CEK KESAMAAN USERNAME PETUGAS
+function usernamePetugas($username){
+    global $conn;
+    $sql = "SELECT * FROM `petugas` WHERE `username` = '$username'";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_num_rows($query);
+    return $row;
+}
+
+// TAMBAH PETUGAS BARU
+function tambahPetugas($data){
+    $nama = $data['nama'];
+    $username = $data['username'];
+    $password = $data['password'];
+    $telepon =  $data['telepon'];
+    $level = 'petugas';
+
+    global $conn;
+    $sql = "INSERT INTO `petugas`(`id_petugas`, `nama_petugas`, `username`, `password`, `telp`, `level`) 
+            VALUES ('','$nama','$username','$password','$telepon','$level')";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_affected_rows($conn);
+    return $row;
+}
+
 // 
 // PETUGAS
 // 

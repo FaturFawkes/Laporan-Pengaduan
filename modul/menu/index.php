@@ -26,7 +26,7 @@ session_destroy();
                     </div>
                     <div class="container-login100-form-btn m-t-17">
 						<button class="login100-form-btn" onclick="window.location.href='http://<?=$server ?>modul/admin-app/login'" type="submit">
-                            Admin
+                            Administrator
 						</button>
                     </div>
                     <hr>

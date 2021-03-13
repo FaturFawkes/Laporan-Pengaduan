@@ -94,26 +94,26 @@ if( !isset($_SESSION['username']) ){
                                             </td>
                                             <td>
                                             <?php
-                                            echo '<script>
-                                            function tolak() {
-                                                var r = confirm("Apakah anda yakin?");
-                                                if (r == true) {
-                                                    window,location.href= "http://'.$server.'modul/admin-app/dashboard-admin/hapus.php?id='.$data['id_pengaduan'].'";
-                                                } else {
-                                                    window,location.href= "http://'.$server.'modul/admin-app/dashboard-admin/lihatLaporan.php/#";
-                                                }
-                                            }
-                                            </script>
-                                            <script>
-                                            function terima() {
-                                                var r = confirm("Apakah anda yakin?");
-                                                if (r == true) {
-                                                    window,location.href= "http://'.$server.'modul/admin-app/dashboard-admin/accLaporan.php?id='.$data['id_pengaduan'].'";
-                                                } else {
-                                                    window,location.href= "http://'.$server.'modul/admin-app/dashboard-admin/lihatLaporan.php/#";
-                                                }
-                                            }
-                                            </script>';
+                                            // echo '<script>
+                                            // function tolak() {
+                                            //     var r = confirm("Apakah anda yakin?");
+                                            //     if (r == true) {
+                                            //         window,location.href= "http://'.$server.'modul/admin-app/dashboard-admin/hapus.php?id='.$data['id_pengaduan'].'";
+                                            //     } else {
+                                            //         window,location.href= "http://'.$server.'modul/admin-app/dashboard-admin/lihatLaporan.php/#";
+                                            //     }
+                                            // }
+                                            // </script>
+                                            // <script>
+                                            // function terima() {
+                                            //     var r = confirm("Apakah anda yakin?");
+                                            //     if (r == true) {
+                                            //         window,location.href= "http://'.$server.'modul/admin-app/dashboard-admin/accLaporan.php?id='.$data['id_pengaduan'].'";
+                                            //     } else {
+                                            //         window,location.href= "http://'.$server.'modul/admin-app/dashboard-admin/lihatLaporan.php/#";
+                                            //     }
+                                            // }
+                                            // </script>';
                                             if($data['status'] == 0){
                                             ?>
                                                 <a href="formValidasi.php?id=<?= $data['id_pengaduan']; ?>" class="btn btn-success px-2 my-1">Validasi</a>

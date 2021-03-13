@@ -62,19 +62,13 @@ if(  isset($_SESSION['username']) ){
                                     </a>
                                 </li>   
                                 <li>
-                                    <a href="http://'.$server.'modul/admin-app/dashboard-admin/#" class="">
-                                        <i class="metismenu-icon pe-7s-users"></i>
-                                        Daftar Masyarakat
-                                    </a>
-                                </li>   
-                                <li>
-                                    <a href="http://'.$server.'modul/admin-app/dashboard-admin/#" class="">
+                                    <a href="http://'.$server.'modul/admin-app/dashboard-admin/daftarPetugas.php" class="">
                                         <i class="metismenu-icon pe-7s-note2"></i>
                                         Daftar Petugas
                                     </a>
                                 </li>   
                                 <li>
-                                    <a href="http://'.$server.'modul/masyarakat-app/dashboard-admin/#" class="">
+                                    <a href="http://'.$server.'modul/admin-app/dashboard-admin/registrasi.php" class="">
                                         <i class="metismenu-icon pe-7s-add-user"></i>
                                         Registrasi
                                     </a>
