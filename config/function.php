@@ -200,6 +200,52 @@ function formValidasi($id){
     return $row;
 }
 
+// DETAIL TANGGAPAN PADA DETAIL PENGADUAN
+function tanggapanPengaduanCek($id){
+    global $conn;
+ 
+    $sql = "SELECT id_pengaduan, id_petugas, peng.tgl_pengaduan, nik, isi_laporan, foto, `status`, judul_pengaduan, alamat, tanggapan FROM pengaduan peng INNER JOIN tanggapan tang USING (id_pengaduan) WHERE id_pengaduan = $id";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_num_rows($query);
+    return $row;
+}
+
+function tanggapan($id){
+    global $conn;
+
+    $sql = "SELECT nama_petugas, tanggapan FROM petugas pet INNER JOIN tanggapan tang USING (id_petugas) WHERE id_pengaduan = $id";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($query);
+    return $row;
+}
+
+// UPDATE PADA FORM VALIDASI
+function validasi($idPengaduan, $idPetugas ,$nik, $judul, $alamat, $isi, $tanggal, $tanggapan, $status){
+    global $conn;
+    // MENGUBAH TANGGAL PENGADUAN SESUAI FORMAT MYSQL
+    $pecah = explode('/', $tanggal);
+    $tgl =$pecah['0'];
+    $bulan = $pecah['1'];
+    $thn = $pecah['2'];
+    $tglPengaduan = date('Y-m-d', strtotime("$tgl-$bulan-$thn"));
+
+    $pengaduanSQL = "UPDATE `pengaduan` SET `tgl_pengaduan`='$tanggal',
+                    `nik`='$nik',`isi_laporan`='$isi',`status`='$status',
+                    `judul_pengaduan`='$judul',`alamat`='$alamat' WHERE id_pengaduan = $idPengaduan";
+    $queryPengaduan = mysqli_query($conn, $pengaduanSQL);
+
+    // MEMBUAT TANGGAL TANGGAPAN
+    $tglTanggapan = date('Y-m-d');
+
+    $tanggapanSQL = "INSERT INTO `tanggapan`(`id_tanggapan`, `id_pengaduan`, `tgl_tanggapan`, `tanggapan`, `id_petugas`) 
+                     VALUES ('',$idPengaduan,'$tglTanggapan','$tanggapan',$idPetugas)";
+    $queryTanggapan = mysqli_query($conn, $tanggapanSQL);
+    $row = mysqli_affected_rows($conn);
+    return $row;
+
+}
+
+
 
 // 
 // PETUGAS

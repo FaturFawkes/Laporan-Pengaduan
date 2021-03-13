@@ -51,7 +51,7 @@ if( !isset($_SESSION['username']) ){
                         <div class="col-md-12 lg-12">
                             <div class="main-card mb-3 card">
                                 <div class="card-body">
-                                    <table class="mb-0 table table-striped" id="data-table-admin">
+                                    <table class="mb-0 table table-striped" id="data-table-admin" data-export-title="Laporan Pengaduan <?= date('d-m-Y') ?>">
                                         <thead>
                                         <tr>
                                             <th class="text-center">No</th>

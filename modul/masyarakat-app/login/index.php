@@ -86,6 +86,15 @@ session_destroy();
 						</a>
 					</div>
 				</form>
+				<div class="w-full text-center p-t-55">
+						<span class="txt2">
+							Kembali ke
+						</span>
+
+						<a href="../../menu" class="txt2 bo1">
+							Menu utama
+						</a>
+					</div>
 
 			</div>
 		</div>

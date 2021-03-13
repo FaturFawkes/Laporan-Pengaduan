@@ -116,19 +116,16 @@ if( !isset($_SESSION['username']) ){
                                                 <li class="list-group-item">
                                                        <?php
                                                             $id = $_GET['id'] ;
-                                                            $cekTanggapan = lihatTanggapanPengaduan($id);
+                                                            $cekTanggapan = tanggapanPengaduanCek($id);
                                                             $tanggapan = tanggapan($id);
+
                                                             if($cekTanggapan == 1){
                                                             
                                                         ?>
 
                                                         <h6><b>Tanggapan : <?= $tanggapan['tanggapan']; ?></b></h6>
                                                         <br><p class="text-muted">Ditanggapi Oleh : 
-                                                        <?php 
-                                                            $id = $tanggapan['id_petugas'];
-                                                            $petugas = dataPetugas($id);
-                                                            echo $petugas['nama_petugas'];
-                                                        ?>
+                                                        <?= $tanggapan['nama_petugas'];?>
                                                         </p>
                                                         
                                                         <?php

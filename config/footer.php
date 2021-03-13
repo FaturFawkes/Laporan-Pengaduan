@@ -20,4 +20,48 @@
 
         });
     });
+
+            $(document).ready(function(){
+                var buttonCommon = {
+        init: function (dt, node, config) {
+            var table = dt.table().context[0].nTable;
+            if (table) config.title = $(table).data('export-title')
+        },
+        title: 'default title'
+        };
+        $.extend( $.fn.dataTable.defaults, {
+            "buttons": [
+                $.extend( true, {}, buttonCommon, {
+                    extend: 'copyHtml5',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                } ),
+                $.extend( true, {}, buttonCommon, {
+                    extend: 'excelHtml5',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                } ),
+                $.extend( true, {}, buttonCommon, {
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                } ),
+                $.extend( true, {}, buttonCommon, {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    orientation: 'landscape'
+                } )
+            ]
+        } );
+        $('#data-table-admin').DataTable({
+            dom : 'Bfrtip',
+
+        });
+    });
 </script>
