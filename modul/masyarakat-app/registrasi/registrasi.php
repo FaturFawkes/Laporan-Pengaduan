@@ -2,7 +2,7 @@
 include "../../../config/function.php";
 
 // AMBIL DATA NIK 
-$ambilNik = ambilDataMasyarakat($_POST['nik']);
+$ambilNik = ambilDataMasyarakatRegis($_POST['nik']);
 $cekNik = mysqli_num_rows($ambilNik);
 $row = mysqli_fetch_assoc($ambilNik);
 

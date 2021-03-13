@@ -56,7 +56,7 @@ if(  isset($_SESSION['username']) ){
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://'.$server.'modul/admin-app/dashboard-admin/#" class="">
+                                    <a href="http://'.$server.'modul/admin-app/dashboard-admin/verifikasi.php" class="">
                                         <i class="metismenu-icon pe-7s-id"></i>
                                         Verifikasi Masyarakat
                                     </a>

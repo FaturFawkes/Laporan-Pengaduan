@@ -7,7 +7,7 @@ $password = $_POST['password'];
 
 $nik = $_POST['nik'];
 
-$data = ambilDatamasyarakat($_POST);
+$data = ambilDatamasyarakatLogin($_POST);
 $cekRow = mysqli_num_rows($data);
 $row = mysqli_fetch_assoc($data);
 

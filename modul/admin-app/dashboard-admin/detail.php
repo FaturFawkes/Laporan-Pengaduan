@@ -148,6 +148,16 @@ if( !isset($_SESSION['username']) ){
     </div>
     <?php include "../../../config/footer.php"; ?>
 <script type="text/javascript" src="../../../assets/dashboard/assets/scripts/main.js"></script>
+<script>
+                          function logout() {
+                              var r = confirm("Apakah anda yakin?");
+                              if (r == true) {
+                                  window,location.href= "http://'.$server.'modul/masyarakat-app/login";
+                              } else {
+                                  window,location.href= "#";
+                              }
+                            }
+                          </script>
 </body>
 </html>
 

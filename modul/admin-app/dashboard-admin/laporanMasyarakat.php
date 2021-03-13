@@ -41,7 +41,7 @@ if( !isset($_SESSION['username']) ){
                                         </i>
                                     </div>
                                     <div>Laporan Masyarakat
-                                        <div class="page-title-subheading">Anda dapat melihat, verifikasi dan menolak laporan dari masyarakat</div>
+                                        <div class="page-title-subheading">Anda dapat melihat, validasi dan menolak laporan dari masyarakat</div>
                                     </div>
                                 </div>
                             </div>
@@ -127,13 +127,13 @@ if( !isset($_SESSION['username']) ){
                                             <?php   
                                             }elseif($data['status'] == 2){
                                             ?>
-                                                <a href="" class="btn btn-light disabled">Diterima</a>
-                                                <a href="detail.php?id=<?= $data['id_pengaduan']; ?>" class="btn btn-primary my-1">Detail</a>
+                                                <a href="" class="btn btn-light disabled mb-2">Diterima</a>
+                                                <a href="detail.php?id=<?= $data['id_pengaduan']; ?>" class="btn btn-primary my-1 px-3">Detail</a>
                                             <?php
                                             }elseif($data['status'] == 3){
                                             ?>
-                                                <a href="" class="btn btn-light disabled">Ditolak</a>
-                                                <a href="detail.php?id=<?= $data['id_pengaduan']; ?>" class="btn btn-primary">Detail</a>
+                                                <a href="" class="btn btn-light disabled mb-2">Ditolak</a>
+                                                <a href="detail.php?id=<?= $data['id_pengaduan']; ?>" class="btn btn-primary px-3">Detail</a>
                                             <?php
                                             }
                                             ?>

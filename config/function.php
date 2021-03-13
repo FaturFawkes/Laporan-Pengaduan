@@ -6,11 +6,20 @@ include "constant.php";
 // MASYARAKAT
 // 
 
-// AMBIL NIK MASYARAKAT (REGISTRASI & LOGIN)
-function ambilDataMasyarakat($nik){
+// AMBIL NIK MASYARAKAT (LOGIN)
+function ambilDataMasyarakatLogin($nik){
     global $conn;
 
     $nik = $nik['nik'];
+    $sql = "SELECT * FROM `masyarakat` WHERE `nik` = $nik ";
+    $query = mysqli_query($conn, $sql);
+    return $query;
+}
+
+// AMBIL NIK MASYARAKAT (REGISTRASI)
+function ambilDataMasyarakatRegis($nik){
+    global $conn;
+
     $sql = "SELECT * FROM `masyarakat` WHERE `nik` = $nik ";
     $query = mysqli_query($conn, $sql);
     return $query;
@@ -159,7 +168,7 @@ function hapusLaporan($id){
 }
 
 // 
-// ADMINISTRTOR
+// ADMINISTRATOR
 // 
 
 // LOGIN ADMIN
@@ -175,7 +184,7 @@ function loginAdmin($username){
 function daftarPengaduan(){
     global $conn;
 
-    $sql = "SELECT * FROM pengaduan";
+    $sql = "SELECT * FROM pengaduan ORDER BY tgl_pengaduan DESC";
     $query = mysqli_query($conn, $sql);
     return $query;
 }
@@ -245,7 +254,34 @@ function validasi($idPengaduan, $idPetugas ,$nik, $judul, $alamat, $isi, $tangga
 
 }
 
+// VERIFIKASI
+// DATA MASYARAKAT
+function daftarMasyarakat(){
+    global $conn;
+    $sql = "SELECT * FROM `masyarakat` ORDER BY `status` DESC";
+    $query = mysqli_query($conn, $sql);
+    return $query;
+}
 
+// NONAKTIFKAN AKUN
+function updateStatus($nik, $status){
+    global $conn;
+
+    $sql = "UPDATE masyarakat SET `status` = '$status' WHERE nik = $nik";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_affected_rows($conn);
+    return $row;
+}
+
+// HAPUS AKUN MASYARKAT
+function hapusMasyarakat($nik){
+    global $conn;
+
+    $sql = "DELETE FROM masyarakat WHERE nik = $nik";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_affected_rows($conn);
+    return $row;
+}
 
 // 
 // PETUGAS
