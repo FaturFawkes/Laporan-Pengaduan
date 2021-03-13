@@ -67,7 +67,7 @@ $pesan = $_GET['pesan'];
                             <div class="name">NIK</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="number" name="nik">
+                                    <input class="input--style-5" type="number" name="nik" required>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@ $pesan = $_GET['pesan'];
                             <div class="name">Nama Lengkap</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="nama">
+                                    <input class="input--style-5" type="text" name="nama" required>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +83,7 @@ $pesan = $_GET['pesan'];
                             <div class="name">Username</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="username">
+                                    <input class="input--style-5" type="text" name="username" required>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ $pesan = $_GET['pesan'];
                             <div class="name">Password</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="password" name="password">
+                                    <input class="input--style-5" type="password" name="password" required>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@ $pesan = $_GET['pesan'];
                             <div class="name">Telepon</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="number" name="telepon">
+                                    <input class="input--style-5" type="number" name="telepon" required>
                                     <label class="label--desc pt-5">Nomor HP</label>
                                 </div>
                             </div>

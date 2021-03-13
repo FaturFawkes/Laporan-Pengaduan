@@ -7,10 +7,10 @@ include "constant.php";
 // 
 
 // AMBIL NIK MASYARAKAT (LOGIN)
-function ambilDataMasyarakatLogin($nik){
+function ambilDataMasyarakatLogin($data){
     global $conn;
 
-    $nik = $nik['nik'];
+    $nik = $data['nik'];
     $sql = "SELECT * FROM `masyarakat` WHERE `nik` = $nik ";
     $query = mysqli_query($conn, $sql);
     return $query;
