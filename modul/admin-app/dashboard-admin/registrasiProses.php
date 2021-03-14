@@ -13,7 +13,7 @@ if($cekUsername > 0){
 
     if( $tambahData > 0 ){
         $pesan = "berhasil";
-        echo '<script>alert("Pendaftaran berhasil!");window.location.href="daftarPetugas.php?pesan='.$pesan.'";</script>'; 
+        echo '<script>window.location.href="daftarPetugas.php?pesan='.$pesan.'";</script>'; 
     }
     else{
         $pesan = "gagal";

@@ -44,8 +44,13 @@ function tambahDataMasyarakat($data){
     $username = $data['username'];
     $password = $data['password'];
     $telepon = $data['telepon'];
+    // HASH PASSWORD
+    $options = [
+        'cost' => 10,
+    ];
+    $pass = password_hash($password, PASSWORD_DEFAULT, $options);
 
-    $sql = "INSERT INTO `masyarakat` (`nik`, `nama`, `username`, `password`, `telp`, `status`) VALUES ('$nik', '$nama', '$username', '$password', '$telepon', 'nonAktif')";
+    $sql = "INSERT INTO `masyarakat` (`nik`, `nama`, `username`, `password`, `telp`, `status`) VALUES ('$nik', '$nama', '$username', '$pass', '$telepon', 'nonAktif')";
     $query = mysqli_query($conn, $sql);
     $row = mysqli_affected_rows($conn);
     return $row;
@@ -165,6 +170,16 @@ function hapusLaporan($id){
     $row = mysqli_affected_rows($conn);
     return $row;
 
+}
+
+// TOTAL LAPORAN USER
+function totalLaporanUser($status, $nik){
+    global $conn;
+
+    $sql = "SELECT * FROM pengaduan WHERE `status` = '$status' AND nik = '$nik'";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_num_rows($query);
+    return $row;
 }
 
 // 
@@ -317,16 +332,35 @@ function tambahPetugas($data){
     $telepon =  $data['telepon'];
     $level = 'petugas';
 
+    // // PASSWORD HASH
+    // $options = [
+    //     'cost' => 10,
+    // ];
+    // $pass = password_hash($password, PASSWORD_DEFAULT, $options);
+
     global $conn;
-    $sql = "INSERT INTO `petugas`(`id_petugas`, `nama_petugas`, `username`, `password`, `telp`, `level`) 
-            VALUES ('','$nama','$username','$password','$telepon','$level')";
+    $sql = "INSERT INTO `petugas`(`id_petugas`, `nama_petugas`, `username`, `password`, `telp`, `level`) VALUES ('','$nama','$username','$password','$telepon','$level')";
     $query = mysqli_query($conn, $sql);
     $row = mysqli_affected_rows($conn);
     return $row;
 }
 
-// 
-// PETUGAS
-// 
+// HITUNG TOTAL LAPORAN
+function totalLaporan($status){
+    global $conn;
 
+    $sql = "SELECT * FROM pengaduan WHERE `status` = '$status'";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_num_rows($query);
+    return $row;
+}
+
+// HITUNG TOTAL MASYARAKAT
+function totalMasyarakat($status){
+    global $conn;
+    $sql = "SELECT * FROM masyarakat WHERE `status` = '$status'";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_num_rows($query);
+    return $row;
+}
 ?>

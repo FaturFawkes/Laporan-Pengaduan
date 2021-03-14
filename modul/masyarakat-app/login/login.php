@@ -11,9 +11,9 @@ $data = ambilDataMasyarakatLogin($_POST);
 $cekRow = mysqli_num_rows($data);
 $row = mysqli_fetch_assoc($data);
 
-
 if ($cekRow > 0 ){
-    if($username == $row['username'] and $password == $row['password']){
+    if($username == $row['username'] and password_verify($password, $row['password']) ){
+       
         if($row['status'] == 'aktif'){
             // @session_start();
             $_SESSION['username'] = $username;

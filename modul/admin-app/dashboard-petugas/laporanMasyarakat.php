@@ -84,18 +84,18 @@ if( !isset($_SESSION['username']) ){
                         </div>
                     </div>
                 
-                        <div class="col-lg-6 col-xl-4">
-                            <div class="card mb-3 widget-content">
-                                <div class="widget-content-wrapper">
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Laporan Diproses</div>
-                                        <div class="widget-subheading">Menunggu konfirmasi pemerintah</div>
-                                    </div>
-                                    <div class="widget-content-right">
-                                        <div class="widget-numbers text-warning"><span><?= $laporanDiproses; ?></span></div>
-                                    </div>
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="card mb-3 widget-content">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left">
+                                    <div class="widget-heading">Laporan Diproses</div>
+                                    <div class="widget-subheading">Menunggu konfirmasi pemerintah</div>
+                                </div>
+                                <div class="widget-content-right">
+                                    <div class="widget-numbers text-warning"><span><?= $laporanDiproses; ?></span></div>
                                 </div>
                             </div>
+                        </div>
                     </div>
                         <div class="col-lg-6 col-xl-4">
                             <div class="card mb-3 widget-content">
@@ -114,7 +114,7 @@ if( !isset($_SESSION['username']) ){
                 </div>
                 <div class="main-card mb-3 card">
                     <div class="card-body">
-                        <table class="mb-0 table table-striped" id="data-table-admin" data-export-title="Daftar Masyarakat <?= date('d-m-Y') ?>">
+                        <table class="mb-0 table table-striped" id="data-table-masyarakat">
                             <thead>
                             <tr>
                                 <th class="text-center">No</th>
@@ -157,26 +157,6 @@ if( !isset($_SESSION['username']) ){
                                 </td>
                                 <td>
                                 <?php
-                                // echo '<script>
-                                // function tolak() {
-                                //     var r = confirm("Apakah anda yakin?");
-                                //     if (r == true) {
-                                //         window,location.href= "http://'.$server.'modul/admin-app/dashboard-admin/hapus.php?id='.$data['id_pengaduan'].'";
-                                //     } else {
-                                //         window,location.href= "http://'.$server.'modul/admin-app/dashboard-admin/lihatLaporan.php/#";
-                                //     }
-                                // }
-                                // </script>
-                                // <script>
-                                // function terima() {
-                                //     var r = confirm("Apakah anda yakin?");
-                                //     if (r == true) {
-                                //         window,location.href= "http://'.$server.'modul/admin-app/dashboard-admin/accLaporan.php?id='.$data['id_pengaduan'].'";
-                                //     } else {
-                                //         window,location.href= "http://'.$server.'modul/admin-app/dashboard-admin/lihatLaporan.php/#";
-                                //     }
-                                // }
-                                // </script>';
                                 if($data['status'] == 0){
                                 ?>
                                     <a href="formValidasi.php?id=<?= $data['id_pengaduan']; ?>" class="btn btn-success px-2 my-1">Validasi</a>
@@ -190,8 +170,8 @@ if( !isset($_SESSION['username']) ){
                                 <?php   
                                 }elseif($data['status'] == 2){
                                 ?>
-                                    <a href="" class="btn btn-light disabled mb-2">Diterima</a>
-                                    <a href="detail.php?id=<?= $data['id_pengaduan']; ?>" class="btn btn-primary my-1 px-3">Detail</a>
+                                    <a href="" class="btn btn-light disabled my-2">Diterima</a>
+                                    <a href="detail.php?id=<?= $data['id_pengaduan']; ?>" class="btn btn-primary mb-y px-3">Detail</a>
                                 <?php
                                 }elseif($data['status'] == 3){
                                 ?>
@@ -210,11 +190,12 @@ if( !isset($_SESSION['username']) ){
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>                  
+            </div>    
+        </div>     
     </div>
+   
     <?php include "../../../config/footer.php"; ?>
-<script type="text/javascript" src="../../../assets/dashboard/assets/scripts/main.js"></script>
+    <script type="text/javascript" src="../../../assets/dashboard/assets/scripts/main.js"></script>
 </body>
 </html>
 

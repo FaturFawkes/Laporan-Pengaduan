@@ -97,7 +97,7 @@ if(  isset($_SESSION['username']) ){
     } elseif( $_SESSION['level'] == "petugas"){
         $confirm = "Anda Yakin?";
         $sidebar = '
-        <div class="app-sidebar sidebar-shadow">
+            <div class="app-sidebar sidebar-shadow">
                     <div class="app-header__logo ">
                         <div class="logo-src"></div>
                         <div class="header__pane ml-auto">
@@ -132,25 +132,25 @@ if(  isset($_SESSION['username']) ){
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Dashboards</li>
                                 <li>
-                                    <a href="index.html" class="">
+                                    <a href="http://'.$server.'modul/admin-app/dashboard-petugas/" class="">
                                         <i class="metismenu-icon pe-7s-home"></i>
                                         Home
                                     </a>
                                 </li>    
                                 <li>
-                                    <a href="index.html" class="">
+                                    <a href="http://'.$server.'modul/admin-app/dashboard-petugas/laporanMasyarakat.php" class="">
                                         <i class="metismenu-icon pe-7s-note"></i>
-                                        Buat Pengaduan
+                                        Laporan Pengaduan
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="index.html" class="">
-                                        <i class="metismenu-icon pe-7s-note2"></i>
-                                        Lihat Pengaduan
+                                    <a href="http://'.$server.'modul/admin-app/dashboard-petugas/verifikasi.php" class="">
+                                        <i class="metismenu-icon pe-7s-id"></i>
+                                        Verifikasi Masyarakat
                                     </a>
-                                </li>   
+                                </li>     
                                 <li>
-                                    <a href="index.html" class="">
+                                    <a class="" onclick="logout()">
                                         <i class="metismenu-icon pe-7s-close"></i>
                                         Logout
                                     </a>
@@ -159,7 +159,17 @@ if(  isset($_SESSION['username']) ){
                         </div>
                     </div>
                 </div>
-        ';
+                <script>
+                        function logout() {
+                            var r = confirm("Apakah anda yakin?");
+                            if (r == true) {
+                                window,location.href= "http://'.$server.'modul/admin-app/login";
+                            } else {
+                                window,location.href= "#";
+                            }
+                            }
+                        </script>
+            ';
     }elseif( $_SESSION['level'] == "masyarakat"){
         $confirm = "Apakah Anda Yakin?";
         $sidebar = '
