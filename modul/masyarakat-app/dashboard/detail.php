@@ -59,17 +59,17 @@ if( !isset($_SESSION['username']) ){
                           $data = mysqli_fetch_assoc($pengaduan);
 
                         ?>
-                        <div class="col-md-12 lg-12">
+                        <div class="col-lg-12 lg-12">
                           <div class="main-card mb-3 card">
                             <div class="card-header">Header</div>
                             <div class="card-body"><h5 class="card-title pl-2">Gambar Terkait</h5>
                               <div class="row">
                                 <!-- JIKA SUDAH ADA TANGGAPAN -->
                                 <?php if( $tanggapan == true ){ ?>
-                                  <div class="col-md-6">
+                                  <div class="col-lg-6">
                                         <img src="../../../assets/image/<?= $tanggapan['foto']; ?>" style="width:400px;height:400px;" alt="Gambar Lokasi">
                                       </div>
-                                      <div class="col-md-6">
+                                      <div class="col-lg-6">
                                         <ul class="list-group list-group-flush">
                                           <li class="list-group-item"><h6><b>Judul : <?= $tanggapan['judul_pengaduan']; ?></b></h6></li>
                                           <li class="list-group-item">
@@ -113,10 +113,10 @@ if( !isset($_SESSION['username']) ){
                                       
                                 <!-- JIKA BELUM ADA TANGGAPAN -->
                                 <?php }elseif($tanggapan == false){?>
-                                  <div class="col-md-6">
+                                  <div class="col-lg-6">
                                   <img src="../../../assets/image/<?= $data['foto']; ?>" style="width:400px;height:400px;" alt="Gambar Lokasi">
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-lg-6">
                                   <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><h6><b>Judul : <?= $data['judul_pengaduan']; ?></b></h6></li>
                                     <li class="list-group-item">

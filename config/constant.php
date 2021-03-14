@@ -11,7 +11,7 @@ if(  isset($_SESSION['username']) ){
         $sidebar = '
         <div class="app-sidebar sidebar-shadow">
                     <div class="app-header__logo ">
-                        <div class="logo-src"></div>
+                        <div class="logo-src"></div><h4>Laporan Pengaduan</h4>
                         <div class="header__pane ml-auto">
                             <div>
                                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">

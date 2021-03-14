@@ -49,7 +49,7 @@ if( !isset($_SESSION['username']) ){
               </div>
           </div> 
           <!-- KONTENT UTAMA -->
-          <div class="col-md-12 lg-12">
+          <div class="col-lg-12 lg-12">
                 <?php 
                 $nik = $_SESSION['nik'];
                 $laporanDiterima = totalLaporanUser('2', $nik);
@@ -113,7 +113,7 @@ if( !isset($_SESSION['username']) ){
                         </div>
                     </div>
                 </div>
-          <div class="col-md-12 lg-12">
+          <div class="col-lg-12 lg-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
                     <table class="mb-0 table table-striped" id="data-table-masyarakat">

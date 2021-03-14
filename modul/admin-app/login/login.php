@@ -10,10 +10,10 @@ $cekRow = mysqli_num_rows($data);
 $row = mysqli_fetch_assoc($data);
 
 // $verify = password_verify($password, $row['password']);
-
+// var_dump($verify);die;
 if ($cekRow > 0 ){
     if($username == $row['username'] and $row['level'] == 'petugas'){
-        if( $password = $row['password']){
+        if($row['password'] == $password){
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
             $_SESSION['level'] = 'petugas';
