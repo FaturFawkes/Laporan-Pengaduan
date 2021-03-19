@@ -127,10 +127,10 @@ if( !isset($_SESSION['username']) ){
                                         </div>
                                     </div>
 
-                                    <a class="btn btn-success" href="validasi.php?id=<?= $data['id_pengaduan']; ?>" style="color:white;" onclick="return confirm('Apakah Anda Yakin?')" type="submit">Validasi</a>
-                                    <a class="btn btn-danger" href="reject.php?id=<?= $data['id_pengaduan']; ?>" style="color:white;" onclick="return confirm('Apakah Anda Yakin?')">Tolak</a>
+                                    <!-- <a class="btn btn-success" href="validasi.php?id=<?= $data['id_pengaduan']; ?>" style="color:white;" onclick="return confirm('Apakah Anda Yakin?')" type="submit">Validasi</a> -->
                                     <a class="btn btn-primary" href="laporanMasyarakat.php" style="color:white;">Kembali</a>
-                                    <button class="btn btn-primary" type="submit">Submit form</button>
+                                    <a class="btn btn-danger" href="reject.php?id=<?= $data['id_pengaduan']; ?>" style="color:white;" onclick="return confirm('Apakah Anda Yakin?')">Tolak</a>
+                                    <button class="btn btn-success" type="submit">Validasi</button>
                                 </form>
             
                                 <script>

@@ -1,6 +1,7 @@
 <?php
 
 include "../../../config/function.php";
+include "../../../config/header.php";
 
 session_destroy();
 ?>
@@ -120,3 +121,7 @@ session_destroy();
 <!--===============================================================================================-->
 	<script src="../../../assets/login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
+
+<?php
+include "../../../config/footer.php";
+?>

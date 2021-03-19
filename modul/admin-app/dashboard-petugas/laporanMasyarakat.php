@@ -170,8 +170,8 @@ if( !isset($_SESSION['username']) ){
                                 <?php   
                                 }elseif($data['status'] == 2){
                                 ?>
-                                    <a href="" class="btn btn-light disabled my-2">Diterima</a>
-                                    <a href="detail.php?id=<?= $data['id_pengaduan']; ?>" class="btn btn-primary mb-y px-3">Detail</a>
+                                    <a href="" class="btn btn-light disabled my-1">Diterima</a>
+                                    <a href="detail.php?id=<?= $data['id_pengaduan']; ?>" class="btn btn-primary my-2 px-3">Detail</a>
                                 <?php
                                 }elseif($data['status'] == 3){
                                 ?>

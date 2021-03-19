@@ -10,7 +10,7 @@ session_destroy();
 <title>MENU UTAMA</title>
 </head>
 
-<body  style="background-image: url('../../assets/login/images/bg-01.jpg');">
+<body  style="background-image: url('../../assets/login/images/bg-01.jpg'); background-size: cover;">
 
 <div class="container-fluid">
     <div class="row my-5 py-5">

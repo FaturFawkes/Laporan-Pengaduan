@@ -74,7 +74,7 @@ if(  isset($_SESSION['username']) ){
                                     </a>
                                 </li>   
                                 <li>
-                                    <a class="" onclick="logout()">
+                                    <a class="" onclick="logoutAdmin()">
                                         <i class="metismenu-icon pe-7s-close"></i>
                                         Logout
                                     </a>
@@ -84,7 +84,7 @@ if(  isset($_SESSION['username']) ){
                     </div>
                 </div>
                 <script>
-                          function logout() {
+                          function logoutAdmin() {
                               var r = confirm("Apakah anda yakin?");
                               if (r == true) {
                                   window,location.href= "http://'.$server.'modul/admin-app/login";
@@ -150,7 +150,7 @@ if(  isset($_SESSION['username']) ){
                                     </a>
                                 </li>     
                                 <li>
-                                    <a class="" onclick="logout()">
+                                    <a class="" onclick="logoutPetugas()">
                                         <i class="metismenu-icon pe-7s-close"></i>
                                         Logout
                                     </a>
@@ -160,7 +160,7 @@ if(  isset($_SESSION['username']) ){
                     </div>
                 </div>
                 <script>
-                        function logout() {
+                        function logoutPetugas() {
                             var r = confirm("Apakah anda yakin?");
                             if (r == true) {
                                 window,location.href= "http://'.$server.'modul/admin-app/login";
@@ -226,7 +226,7 @@ if(  isset($_SESSION['username']) ){
                                     </a>
                                 </li>   
                                 <li>
-                                    <a class="" onclick="logout()">
+                                    <a class="" onclick="logoutMasyarakat()">
                                         <i class="metismenu-icon pe-7s-close"></i>
                                         Logout
                                     </a>
@@ -236,7 +236,7 @@ if(  isset($_SESSION['username']) ){
                     </div>
                 </div>
                 <script>
-                          function logout() {
+                          function logoutMasyarakat() {
                               var r = confirm("Apakah anda yakin?");
                               if (r == true) {
                                   window,location.href= "http://'.$server.'modul/masyarakat-app/login";

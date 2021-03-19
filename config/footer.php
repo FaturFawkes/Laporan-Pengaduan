@@ -13,6 +13,14 @@
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
 
+<!-- SWEET ALERT -->
+<script type="text/javascript" src="../sweetalert/src/sweetalert.js"></script>
+<script>
+function sweet(){
+    swal("Anda Berhasil Login!");
+}
+</script>
+
 <script>
     $(document).ready(function(){
         $('#data-table-masyarakat').DataTable({

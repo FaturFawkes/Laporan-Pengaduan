@@ -63,20 +63,20 @@ if( !isset($_SESSION['username']) ){
                                             <label for="nik">NIK Pelapor</label>
                                             <input type="text" name="nik" class="form-control" id="nik" placeholder="NIK Masyarakat" value="<?= $data['nik']; ?>" required="">
                                             <div class="valid-feedback">
-                                                Looks good!
+                                                Sudah Terisi
                                             </div>
                                             <div class="invalid-feedback">
-                                                Please choose a username.
+                                                Isi NIK!
                                             </div>
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="alamat">Alamat</label>
                                             <input type="text" name="alamat" class="form-control" id="alamat" placeholder="Alamat Terkait" value="<?= $tanggal = $data['alamat']; ?>" required="">
                                             <div class="valid-feedback">
-                                                Looks good!
+                                                Sudah Terisi
                                             </div>
                                             <div class="invalid-feedback">
-                                                Please provide a valid city.
+                                                Isi Alamat!
                                             </div>
                                         </div>
                                         <div class="col-md-3 mb-3">
@@ -84,10 +84,10 @@ if( !isset($_SESSION['username']) ){
                                             <input type="text" name="tanggal" class="form-control" id="tanggal" placeholder="Judul Pengaduan" value="<?php $tanggal = $data['tgl_pengaduan'];
                                                 echo date("d/F/Y", strtotime($tanggal)); ?>" required="">
                                             <div class="valid-feedback">
-                                                Looks good!
+                                                Sudah Terisi
                                             </div>
                                             <div class="invalid-feedback">
-                                                Please choose a username.
+                                                Isi Tanggal!
                                             </div>
                                         </div>
                                     </div>
@@ -96,10 +96,10 @@ if( !isset($_SESSION['username']) ){
                                             <label for="judul">Judul Pengaduan</label>
                                             <input type="text" name="judul" class="form-control" id="judul" placeholder="Judul Pengaduan" value="<?= $data['judul_pengaduan']; ?>" required="">
                                             <div class="valid-feedback">
-                                                Looks good!
+                                                Sudah Terisi
                                             </div>
                                             <div class="invalid-feedback">
-                                                Please choose a username.
+                                                Isi Judul
                                             </div>
                                         </div>
                                     </div>
@@ -108,6 +108,12 @@ if( !isset($_SESSION['username']) ){
                                             <div class="position-relative form-group">
                                             <label for="isi" class="">Isi Pengaduan</label>
                                             <textarea name="isi" id="isi" class="form-control" style="width: 400px; height: 250px;" required=""><?= $tanggal = $data['isi_laporan'];?></textarea>
+                                            <div class="valid-feedback">
+                                                Sudah Terisi
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Isi Judul
+                                            </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3 ml-5">
@@ -119,7 +125,7 @@ if( !isset($_SESSION['username']) ){
                                             <label for="judul">Tanggapann</label>
                                             <input type="text" class="form-control" id="judul" placeholder="Tanggapan Pengaduan" value="" name="tanggapan" required="">
                                             <div class="valid-feedback">
-                                                Looks good!
+                                                Sudah Terisi
                                             </div>
                                             <div class="invalid-feedback">
                                                 Isi tanggapan!
@@ -127,10 +133,10 @@ if( !isset($_SESSION['username']) ){
                                         </div>
                                     </div>
 
-                                    <a class="btn btn-success" href="validasi.php?id=<?= $data['id_pengaduan']; ?>" style="color:white;" onclick="return confirm('Apakah Anda Yakin?')" type="submit">Validasi</a>
-                                    <a class="btn btn-danger" href="reject.php?id=<?= $data['id_pengaduan']; ?>" style="color:white;" onclick="return confirm('Apakah Anda Yakin?')">Tolak</a>
+                                    <!-- <a class="btn btn-success" href="validasi.php?id=<?= $data['id_pengaduan']; ?>" style="color:white;" onclick="return confirm('Apakah Anda Yakin?')" type="submit">Validasi</a> -->
                                     <a class="btn btn-primary" href="laporanMasyarakat.php" style="color:white;">Kembali</a>
-                                    <button class="btn btn-primary" type="submit">Submit form</button>
+                                    <a class="btn btn-danger" href="reject.php?id=<?= $data['id_pengaduan']; ?>" style="color:white;" onclick="return confirm('Apakah Anda Yakin?')">Tolak</a>
+                                    <button class="btn btn-success" type="submit">Validasi</button>
                                 </form>
             
                                 <script>

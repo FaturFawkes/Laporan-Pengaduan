@@ -73,6 +73,7 @@ function kirimPengaduan($data){
     $alamat = $data['alamat'];
     $namaGambar = $gambar;
     $tanggal = date('Y-m-d');
+    var_dump($tanggal);
 
     $sql = "INSERT INTO 
     `pengaduan`(`id_pengaduan`, `tgl_pengaduan`, `nik`, `isi_laporan`, 
@@ -252,8 +253,8 @@ function validasi($idPengaduan, $idPetugas ,$nik, $judul, $alamat, $isi, $tangga
     $bulan = $pecah['1'];
     $thn = $pecah['2'];
     $tglPengaduan = date('Y-m-d', strtotime("$tgl-$bulan-$thn"));
-
-    $pengaduanSQL = "UPDATE `pengaduan` SET `tgl_pengaduan`='$tanggal',
+    // var_dump($tglPengaduan);die;
+    $pengaduanSQL = "UPDATE `pengaduan` SET `tgl_pengaduan`='$tglPengaduan',
                     `nik`='$nik',`isi_laporan`='$isi',`status`='$status',
                     `judul_pengaduan`='$judul',`alamat`='$alamat' WHERE id_pengaduan = $idPengaduan";
     $queryPengaduan = mysqli_query($conn, $pengaduanSQL);

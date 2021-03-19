@@ -153,6 +153,8 @@ if( !isset($_SESSION['username']) ){
                                 echo "Laporan sedang dalam proses pengecekan";
                               }elseif($data['status'] == 2){
                                 echo "Laporan Diterima";
+                              }elseif($data['status'] == 3){
+                                echo "Laporan Ditolak";
                               }
                             ?></td>
                             <td>
